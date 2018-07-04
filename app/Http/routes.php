@@ -18,7 +18,7 @@
 //    return view('my_laravel');
 //});
 Route::get('/view','ViewController@index');
-
+Route::get('/','IndexController@index');
 //Route::get('/hd', function () {
 //    return view('welcome');
 //});
@@ -34,31 +34,31 @@ Route::get('/view','ViewController@index');
 //    return "<h1>命名路由</h1>";
 //}]);
 
-Route::get('layouts','ViewController@layouts');
-
-Route::get('test1',[
-    'as'=>'profile','uses'=>'Admin\IndexController@index'
-]);
-
-Route::get('test','Admin\IndexController@index')->name('profile');
-
-//Route::get('admin/login','Admin\IndexController@login');
-//Route::get('admin/index','Admin\IndexController@index');
-
-Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['web','admin.login']],function(){
-    //Route::get('login','IndexController@login');
-    Route::get('index','IndexController@index');
-    Route::resource('article','ArticleController');
-});
-
-Route::group(['middleware'=>['web']],function(){
-    Route::get('admin/login','Admin\IndexController@login');
-    Route::get('/', function () {
-        session(['key'=>'123']);
-        return view('welcome');
-    });
-    Route::get('/test', function () {
-        echo session('key');
-        return '<h1>session</h1>';
-    });
-});
+//Route::get('layouts','ViewController@layouts');
+//
+//Route::get('test1',[
+//    'as'=>'profile','uses'=>'Admin\IndexController@index'
+//]);
+//
+//Route::get('test','Admin\IndexController@index')->name('profile');
+//
+////Route::get('admin/login','Admin\IndexController@login');
+////Route::get('admin/index','Admin\IndexController@index');
+//
+//Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['web','admin.login']],function(){
+//    //Route::get('login','IndexController@login');
+//    Route::get('index','IndexController@index');
+//    Route::resource('article','ArticleController');
+//});
+//
+//Route::group(['middleware'=>['web']],function(){
+//    Route::get('admin/login','Admin\IndexController@login');
+//    Route::get('/', function () {
+//        session(['key'=>'123']);
+//        return view('welcome');
+//    });
+//    Route::get('/test', function () {
+//        echo session('key');
+//        return '<h1>session</h1>';
+//    });
+//});
